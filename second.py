@@ -1,33 +1,7 @@
-import string
 import random
+import string
 
-length = int(input("Enter password length: "))
-
-print('''Choose character set for password from these :
-		1. Numbers
-		2. Letters
-		3. Special characters
-		4. Exit''')
-
-characterList = ""
-
-while(True):
-	choice = int(input("Pick a number "))
-	if(choice == 1):
-		characterList += string.ascii_letters
-	elif(choice == 2):
-		characterList += string.digits
-	elif(choice == 3):
-		characterList += string.punctuation
-	elif(choice == 4):
-		break
-	else:
-		print("Please pick a valid option!")
-
-password = []
-
-for i in range(length):
-	randomchar = random.choice(characterList)
-	password.append(randomchar)
-
-print("The random password is " + "".join(password))
+# get random password pf length 8 with letters, digits, and symbols
+characters = string.ascii_letters + string.digits + string.punctuation
+password = ''.join(random.choice(characters) for i in range(8))
+print("Random password is:", password)
